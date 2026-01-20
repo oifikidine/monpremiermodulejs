@@ -17,7 +17,10 @@ function format(n) {
 }
 
 function afficherHeure() {
-  const { heure, minutes, secondes } = generateHeure.monHeure();
+ const heure = generateHeure.monHeure().heure;
+const minutes = generateHeure.monHeure().minutes;
+const secondes = generateHeure.monHeure().secondes;
+
 
   spanHeure.textContent = format(heure)+":";
   spanMinutes.textContent = format(minutes)+":";
@@ -30,4 +33,16 @@ afficherHeure();
 // mise à jour automatique
 setInterval(afficherHeure, 1000);
 
+
+import utilisateur from "./user.js";
+
+const nom = document.getElementById("nom");
+const prenom = document.getElementById("prenom");
+const email = document.getElementById("email");
+const motDePasse = document.getElementById("motDePasse");
+
+nom.textContent = "nom :" + utilisateur.nom;
+prenom.textContent = "prenom :" + utilisateur.prenom;
+email.textContent = "email :" + utilisateur.email;
+motDePasse.textContent = "mot de passe :" + utilisateur.motDePasse;
 
